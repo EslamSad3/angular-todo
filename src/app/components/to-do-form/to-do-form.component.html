@@ -1,0 +1,22 @@
+<!-- <h2>Add To-Do</h2>
+<input type="text" [(ngModel)]="newItem" />
+<button (click)="addNewItem(newItem)">Add</button> -->
+
+<!-- <h2>Add To-Do</h2>
+<input class="form-control" type="text" [(ngModel)]="newItem" />
+<button class="btn btn-success px-3" (click)="addNewItem()">Add</button> -->
+
+<div class="mb-3 fs-4">
+  <label for="addTask" class="form-label"><h2>Add To-Do</h2></label>
+  <input
+    type="text"
+    class="form-control fs-4"
+    placeholder="Enter your task"
+    id="addTask"
+    [(ngModel)]="newItem"
+    (keyup.enter)="newItemFun()"
+  />
+</div>
+<button type="submit" class="btn btn-primary mb-3 btn-lg" (click)="newItemFun()">
+  Add Task
+</button>

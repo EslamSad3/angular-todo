@@ -1,0 +1,78 @@
+<h2 class="mb-3">To-Do List</h2>
+<div class="fs-4">
+  <div class="row border rounded p-2" style="background-color: #e7f7ed">
+    <div class="col-1"><h4>#</h4></div>
+    <div class="col-7"><h4>Task</h4></div>
+    <div class="col-2"><h4>Delete</h4></div>
+    <div class="col-2"><h4>Status</h4></div>
+  </div>
+  <div
+    class="row p-2"
+    *ngFor="let item of toDoItems; let i = index"
+    [ngClass]="{ completed: item.completed }"
+  >
+    <div class="col-1" style="color: #007228">
+      <h4>{{ i + 1 }}-</h4>
+    </div>
+    <div class="col-7" style="color: #00591f">
+      <span
+        ><h4>{{ item.name }}</h4>
+      </span>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-danger" (click)="onRemoveItem(i)">Delete</button>
+    </div>
+
+    <div class="col-2 mb-2">
+      <button class="btn btn-success" (click)="onMarkCompleted(i)">
+        {{ item.completed ? "Undo" : "Completed" }}
+      </button>
+    </div>
+    <hr />
+  </div>
+</div>
+
+<!-- <ul>
+  <li
+    *ngFor="let item of toDoItems; let i = index"
+    [ngClass]="{ completed: item.completed }"
+  >
+    <span class="m-3">{{ item.name }}</span>
+    <button class="btn btn-danger" (click)="onRemoveItem(i)">Delete</button>
+    <button class="btn btn-primary" (click)="onMarkCompleted(i)">
+      {{ item.completed ? "Undo" : "Complete" }}
+    </button>
+  </li>
+</ul> -->
+
+<!-- <table class="table fs-4">
+  <thead>
+    <tr>
+      <th scope="col-2">#</th>
+      <th scope="col-6">Task</th>
+      <th scope="col-2">Completed</th>
+      <th scope="col-2">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let item of toDoItems; let i = index"
+      [ngClass]="{ completed: item.completed }"
+    >
+      <td>
+        {{ i + 1 }}
+      </td>
+      <td>
+        <span>{{ item.name }}</span>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="onRemoveItem(i)">Delete</button>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="onMarkCompleted(i)">
+          {{ item.completed ? "Undo" : "Complete" }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
